@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 二进制部署categraf监控主机
+# centos7.9 二进制部署categraf监控主机
 
 ## 停止已有的categraf
 sudo systemctl stop categraf.service
