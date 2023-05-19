@@ -9,9 +9,9 @@ rm -rf /opt/service/categraf
 ## 下载安装包
 mkdir -p  /opt/service/categraf && cd /opt/service/categraf
 yum install -y wget
-wget https://github.com/flashcatcloud/categraf/releases/download/v0.3.0/categraf-v0.3.0-linux-amd64.tar.gz
-tar -zxvf categraf-v0.3.0-linux-amd64.tar.gz
-cd categraf-v0.3.0-linux-amd64/conf
+wget https://github.com/flashcatcloud/categraf/releases/download/v0.3.4/categraf-v0.3.4-linux-amd64.tar.gz
+tar -zxvf categraf-v0.3.4-linux-amd64.tar.gz
+cd categraf-v0.3.4-linux-amd64/conf
 
 ## 修改categraf配置
 cat > config.toml << EOF
@@ -22,7 +22,6 @@ omit_hostname = false
 precision = "ms"
 interval = 15
 providers = ["local"]
-disable_usage_report = true
 [global.labels]
 [log]
 file_name = "stdout"
@@ -71,8 +70,8 @@ After=network.target
 [Service]
 Type=simple
 
-ExecStart=/opt/service/categraf/categraf-v0.3.0-linux-amd64/categraf
-WorkingDirectory=/opt/service/categraf/categraf-v0.3.0-linux-amd64
+ExecStart=/opt/service/categraf/categraf-v0.3.4-linux-amd64/categraf
+WorkingDirectory=/opt/service/categraf/categraf-v0.3.4-linux-amd64
 
 Restart=on-failure
 SuccessExitStatus=0
